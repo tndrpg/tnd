@@ -1,6 +1,4 @@
-<center>
-  <img src="https://img.shields.io/liberapay/patrons/seanc.svg?logo=liberapay">
-</center>
+[![](https://img.shields.io/liberapay/patrons/seanc.svg?logo=liberapay)](https://liberapay.com/seanc/)
 
 # T&D
 
