@@ -1,3 +1,7 @@
+<center>
+  <img src="https://img.shields.io/liberapay/patrons/seanc.svg?logo=liberapay">
+</center>
+
 # T&D
 
 A set of tools to help you play [Genesys](https://www.fantasyflightgames.com/en/products/genesys/) games.
