@@ -6,7 +6,7 @@ defmodule TndWeb.UserSettingsControllerTest do
 
   setup :register_and_login_user
 
-  describe "GET /users/settings" do
+  describe "GET /me/settings" do
     test "renders settings page", %{conn: conn} do
       conn = get(conn, Routes.user_settings_path(conn, :edit))
       response = html_response(conn, 200)
@@ -20,7 +20,7 @@ defmodule TndWeb.UserSettingsControllerTest do
     end
   end
 
-  describe "PUT /users/settings/update_password" do
+  describe "PUT /me/settings/update_password" do
     test "updates the user password and resets tokens", %{conn: conn, user: user} do
       new_password_conn =
         put(conn, Routes.user_settings_path(conn, :update_password), %{
@@ -31,7 +31,7 @@ defmodule TndWeb.UserSettingsControllerTest do
           }
         })
 
-      assert redirected_to(new_password_conn) == "/users/settings"
+      assert redirected_to(new_password_conn) == "/me/settings"
       assert get_session(new_password_conn, :user_token) != get_session(conn, :user_token)
       assert get_flash(new_password_conn, :info) =~ "Password updated successfully"
       assert Accounts.get_user_by_email_and_password(user.email, "new valid password")
@@ -57,7 +57,7 @@ defmodule TndWeb.UserSettingsControllerTest do
     end
   end
 
-  describe "PUT /users/settings/update_email" do
+  describe "PUT /me/settings/update_email" do
     @tag :capture_log
     test "updates the user email", %{conn: conn, user: user} do
       conn =
@@ -66,7 +66,7 @@ defmodule TndWeb.UserSettingsControllerTest do
           "user" => %{"email" => unique_user_email()}
         })
 
-      assert redirected_to(conn) == "/users/settings"
+      assert redirected_to(conn) == "/me/settings"
       assert get_flash(conn, :info) =~ "A link to confirm your e-mail"
       assert Accounts.get_user_by_email(user.email)
     end
@@ -85,7 +85,7 @@ defmodule TndWeb.UserSettingsControllerTest do
     end
   end
 
-  describe "GET /users/settings/confirm_email/:token" do
+  describe "GET /me/settings/confirm_email/:token" do
     setup %{user: user} do
       email = unique_user_email()
 
@@ -99,19 +99,19 @@ defmodule TndWeb.UserSettingsControllerTest do
 
     test "updates the user email once", %{conn: conn, user: user, token: token, email: email} do
       conn = get(conn, Routes.user_settings_path(conn, :confirm_email, token))
-      assert redirected_to(conn) == "/users/settings"
+      assert redirected_to(conn) == "/me/settings"
       assert get_flash(conn, :info) =~ "E-mail changed successfully"
       refute Accounts.get_user_by_email(user.email)
       assert Accounts.get_user_by_email(email)
 
       conn = get(conn, Routes.user_settings_path(conn, :confirm_email, token))
-      assert redirected_to(conn) == "/users/settings"
+      assert redirected_to(conn) == "/me/settings"
       assert get_flash(conn, :error) =~ "Email change link is invalid or it has expired"
     end
 
     test "does not update email with invalid token", %{conn: conn, user: user} do
       conn = get(conn, Routes.user_settings_path(conn, :confirm_email, "oops"))
-      assert redirected_to(conn) == "/users/settings"
+      assert redirected_to(conn) == "/me/settings"
       assert get_flash(conn, :error) =~ "Email change link is invalid or it has expired"
       assert Accounts.get_user_by_email(user.email)
     end

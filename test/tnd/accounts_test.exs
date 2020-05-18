@@ -38,7 +38,7 @@ defmodule Tnd.AccountsTest do
   describe "get_user!/1" do
     test "raises if id is invalid" do
       assert_raise Ecto.NoResultsError, fn ->
-        Accounts.get_user!(-1)
+        Accounts.get_user!("01E8JXN368HXA0GHPHWD1H9HAE")
       end
     end
 
