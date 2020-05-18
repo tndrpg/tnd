@@ -47,7 +47,7 @@ defmodule Tnd.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:nanoid, "~> 2.0.2"}
+      {:ecto_ulid, "~> 0.2.0"}
     ]
   end
 

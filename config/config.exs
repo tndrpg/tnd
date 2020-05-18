@@ -10,6 +10,8 @@ use Mix.Config
 config :tnd,
   ecto_repos: [Tnd.Repo]
 
+config :tnd, Tnd.Repo, migration_primary_key: [name: :id, type: :binary_id]
+
 # Configures the endpoint
 config :tnd, TndWeb.Endpoint,
   url: [host: "localhost"],
@@ -25,10 +27,6 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
-
-config :nanoid,
-  size: 12,
-  alphabet: "_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

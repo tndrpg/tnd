@@ -9,8 +9,8 @@ defmodule Tnd.Schema do
       import Ecto.Changeset
       import Ecto.Query, warn: false
 
-      @primary_key {:id, Tnd.NanoidEctoType, read_after_writes: true}
-      @foreign_key_type Tnd.NanoidEctoType
+      @primary_key {:id, Ecto.ULID, autogenerate: true}
+      @foreign_key_type Ecto.ULID
     end
   end
 end
