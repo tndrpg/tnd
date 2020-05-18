@@ -62,51 +62,71 @@ defmodule TndWeb.Router do
   scope "/", TndWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    # live /characters/, CharactersLive.Index
-    # live /characters/new, CharactersLive.New
-    # live /characters/:character_id, CharactersLive.Show
-    # live /characters/:character_id/edit, CharactersLive.Edit
-
     # live /games/, GamesLive.Index
     # live /games/new, GamesLive.New
     # live /games/:game_id, GamesLive.Show
     # live /games/:game_id/settings, GamesLive.Settings
 
+    # live /dice/, DiceLive.Index
+    # live /dice/result/:dice_roll_result_id, DiceLive.Result
+    # live /dice/session, DiceSessionLive.Index
+    # live /dice/session/new, DiceSessionLive.New
+    # live /dice/session/:dice_session_id, DiceSessionLive.Show
+
+    # live /characters/, CharactersLive.Index
+    # live /characters/new, CharactersLive.New
+    # live /characters/:character_id, CharactersLive.Show
+    # live /characters/:character_id/edit, CharactersLive.Edit
+
     # live /compendium/, CompendiumLive.Index
     # live /compendium/new, CompendiumLive.New
     # live /compendium/:compendium_id, CompendiumLive.Show
+    # live /compendium/:compendium_id/settings, CompendiumLive.Settings
+
     # live /compendium/:compendium_id/archetypes/, CompendiumArchetypes.Index
     # live /compendium/:compendium_id/archetypes/new, CompendiumArchetypes.New
     # live /compendium/:compendium_id/archetypes/:archetype_id, CompendiumArchetypes.Show
     # live /compendium/:compendium_id/archetypes/:archetype_id/edit, CompendiumArchetypes.Edit
+
     # live /compendium/:compendium_id/careers/, CompendiumCareers.Index
     # live /compendium/:compendium_id/careers/new, CompendiumCareers.New
     # live /compendium/:compendium_id/careers/:career_id, CompendiumCareers.Show
     # live /compendium/:compendium_id/careers/:career_id/edit, CompendiumCareers.Edit
+
     # live /compendium/:compendium_id/talents/, CompendiumTalents.Index
     # live /compendium/:compendium_id/talents/new, CompendiumTalents.New
     # live /compendium/:compendium_id/talents/:talent_id, CompendiumTalents.Show
     # live /compendium/:compendium_id/talents/:talent_id/edit, CompendiumTalents.Edit
+
     # live /compendium/:compendium_id/skills/, CompendiumSkills.Index
     # live /compendium/:compendium_id/skills/new, CompendiumSkills.New
     # live /compendium/:compendium_id/skills/:skill_id, CompendiumSkills.Show
     # live /compendium/:compendium_id/skills/:skill_id/edit, CompendiumSkills.Edit
+
     # live /compendium/:compendium_id/weapons/, CompendiumWeapons.Index
     # live /compendium/:compendium_id/weapons/new, CompendiumWeapons.New
     # live /compendium/:compendium_id/weapons/:weapon_id, CompendiumWeapons.Show
     # live /compendium/:compendium_id/weapons/:weapon_id/edit, CompendiumWeapons.Edit
+
     # live /compendium/:compendium_id/armor/, CompendiumArmor.Index
     # live /compendium/:compendium_id/armor/new, CompendiumArmor.New
     # live /compendium/:compendium_id/armor/:armor_id, CompendiumArmor.Show
     # live /compendium/:compendium_id/armor/:armor_id/edit, CompendiumArmor.Edit
+
     # live /compendium/:compendium_id/gear/, CompendiumGear.Index
     # live /compendium/:compendium_id/gear/new, CompendiumGear.New
     # live /compendium/:compendium_id/gear/:gear_id, CompendiumGear.Show
     # live /compendium/:compendium_id/gear/:gear_id/edit, CompendiumGear.Edit
+
     # live /compendium/:compendium_id/adversaries/, CompendiumAdversaries.Index
     # live /compendium/:compendium_id/adversaries/new, CompendiumAdversaries.New
     # live /compendium/:compendium_id/adversaries/:adversary_id, CompendiumAdversaries.Show
     # live /compendium/:compendium_id/adversaries/:adversary_id/edit, CompendiumAdversaries.Edit
+
+    # live /compendium/:compendium_id/vehicles/, CompendiumVehicles.Index
+    # live /compendium/:compendium_id/vehicles/new, CompendiumVehicles.New
+    # live /compendium/:compendium_id/vehicles/:vehicle_id, CompendiumVehicles.Show
+    # live /compendium/:compendium_id/vehicles/:vehicle_id/edit, CompendiumVehicles.Edit
 
     delete "/me/logout", UserSessionController, :delete
     get "/me/settings", UserSettingsController, :edit
