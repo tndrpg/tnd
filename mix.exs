@@ -49,7 +49,10 @@ defmodule Tnd.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ecto_ulid, "~> 0.2.0"},
-      {:phx_gen_auth, "~> 0.2.0"}
+      {:phx_gen_auth, "~> 0.2.0"},
+      {:mix_test_watch, "~> 1.0.2", only: :dev, runtime: false},
+      {:ex_machina, "~> 2.4"},
+      {:faker, "~> 0.13.0"}
     ]
   end
 

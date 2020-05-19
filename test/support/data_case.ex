@@ -24,6 +24,7 @@ defmodule Tnd.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Tnd.DataCase
+      import Tnd.Factory
     end
   end
 

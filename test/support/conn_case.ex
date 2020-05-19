@@ -23,6 +23,7 @@ defmodule TndWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import TndWeb.ConnCase
+      import Tnd.Factory
 
       alias TndWeb.Router.Helpers, as: Routes
 
@@ -50,7 +51,7 @@ defmodule TndWeb.ConnCase do
   test context.
   """
   def register_and_login_user(%{conn: conn}) do
-    user = Tnd.AccountsFixtures.user_fixture()
+    user = Tnd.Factory.insert(:user)
     %{conn: login_user(conn, user), user: user}
   end
 

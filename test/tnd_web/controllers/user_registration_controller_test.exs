@@ -13,7 +13,7 @@ defmodule TndWeb.UserRegistrationControllerTest do
     end
 
     test "redirects if already logged in", %{conn: conn} do
-      conn = conn |> login_user(user_fixture()) |> get(Routes.user_registration_path(conn, :new))
+      conn = conn |> login_user(insert(:user)) |> get(Routes.user_registration_path(conn, :new))
       assert redirected_to(conn) == "/"
     end
   end

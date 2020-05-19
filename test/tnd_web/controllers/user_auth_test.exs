@@ -3,7 +3,6 @@ defmodule TndWeb.UserAuthTest do
 
   alias Tnd.Accounts
   alias TndWeb.UserAuth
-  import Tnd.AccountsFixtures
 
   setup %{conn: conn} do
     conn =
@@ -11,7 +10,7 @@ defmodule TndWeb.UserAuthTest do
       |> Map.replace!(:secret_key_base, TndWeb.Endpoint.config(:secret_key_base))
       |> init_test_session(%{})
 
-    %{user: user_fixture(), conn: conn}
+    %{user: insert(:user), conn: conn}
   end
 
   describe "login_user/3" do

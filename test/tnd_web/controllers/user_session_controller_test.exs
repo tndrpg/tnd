@@ -4,7 +4,7 @@ defmodule TndWeb.UserSessionControllerTest do
   import Tnd.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    %{user: insert(:confirmed_user)}
   end
 
   describe "GET /users/login" do

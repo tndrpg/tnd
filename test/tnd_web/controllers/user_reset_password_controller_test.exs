@@ -6,7 +6,7 @@ defmodule TndWeb.UserResetPasswordControllerTest do
   import Tnd.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    %{user: insert(:user)}
   end
 
   describe "GET /users/reset_password" do

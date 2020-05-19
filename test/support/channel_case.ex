@@ -22,6 +22,7 @@ defmodule TndWeb.ChannelCase do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
       import TndWeb.ChannelCase
+      import Tnd.Factory
 
       # The default endpoint for testing
       @endpoint TndWeb.Endpoint

@@ -10,7 +10,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :tnd, TndWeb.Endpoint,
-  url: [host: "example.com", port: 80],
+  url: [host: "tndrpg.com", scheme: "https", port: 443],
+  http: [:inet6, port: {:system, "PORT"}],
+  static_url: [scheme: "https", host: "cdn02.triumphanddespair.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
